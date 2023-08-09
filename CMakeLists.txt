@@ -17,6 +17,10 @@ enable_testing()
 add_executable(test_01_01_hex_to_base64 test/test_01_01_hex_to_base64.cpp)
 target_link_libraries(test_01_01_hex_to_base64 GTest::gtest_main)
 
+add_executable(test_01_02_fixed_xor test/test_01_02_fixed_xor.cpp)
+target_link_libraries(test_01_02_fixed_xor GTest::gtest_main)
+
 include(GoogleTest)
 gtest_discover_tests(test_01_01_hex_to_base64)
+gtest_discover_tests(test_01_02_fixed_xor)
 

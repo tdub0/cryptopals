@@ -1,9 +1,9 @@
-#include <string>
-#include <vector>
 #include <cstdint>
 #include <cstdlib>
+#include <string>
+#include <vector>
 
-/* Challenge 1 Set 1: Convert hex to base64
+/* Set 1 Challenge 1: Convert hex to base64
  *
  * Take triplet of bytes (24 bits) and convert to 4 6-bit octets
  *  example:
@@ -20,7 +20,7 @@
  *      base64_1 = ((octet1 & 0xf) << 2) | (octet0 & 0xc0)
  *      base64_0 = (octet0 & 0x3f)
  *  Then convert using using a base64_chars index
-*/
+ */
 
 static const std::string base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                         "abcdefghijklmnopqrstuvwxyz"
@@ -28,12 +28,14 @@ static const std::string base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 void hex_to_base64(const std::string& hex_string, std::string& base64_string) {
     std::vector<uint8_t> byte_array;
+    std::vector<uint8_t> b64_array;
+
     for (uint32_t i = 0; i < hex_string.length(); i += 2) {
         std::string byte_string = hex_string.substr(i, 2);
         uint8_t byte = static_cast<uint8_t>(std::strtoul(byte_string.c_str(), NULL, 16));
         byte_array.push_back(byte);
     }
-    std::vector<uint8_t> b64_array;
+
     for (uint32_t i = 0; i < byte_array.size(); i += 3) {
         b64_array.push_back((byte_array[i] & 0xfc) >> 2);
         b64_array.push_back(((byte_array[i] & 0x03) << 4 ) | ((byte_array[i+1] & 0xf0) >> 4));
