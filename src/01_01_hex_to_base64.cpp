@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "string_interaction.hpp"
+
 /* Set 1 Challenge 1: Convert hex to base64
  *
  * Take triplet of bytes (24 bits) and convert to 4 6-bit octets
