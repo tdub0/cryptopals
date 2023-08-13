@@ -1,7 +1,6 @@
-#include <cstdint>
+#include "01_02_fixed_xor.hpp"
+
 #include <stdexcept>
-#include <string>
-#include <vector>
 
 #include "string_interaction.hpp"
 
