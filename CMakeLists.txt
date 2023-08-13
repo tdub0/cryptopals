@@ -23,10 +23,23 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS)
+
 enable_testing()
 
-add_executable(test_01_01_hex_to_base64 test/test_01_01_hex_to_base64.cpp)
-add_executable(test_01_02_fixed_xor test/test_01_02_fixed_xor.cpp)
+add_executable(test_01_01_hex_to_base64
+    src/string_interaction.cpp
+    src/01_01_hex_to_base64.cpp
+    test/test_01_01_hex_to_base64.cpp)
+add_executable(test_01_02_fixed_xor
+    src/string_interaction.cpp
+    src/01_02_fixed_xor.cpp
+    test/test_01_02_fixed_xor.cpp)
+
+target_include_directories(test_01_01_hex_to_base64
+    PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(test_01_02_fixed_xor
+    PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(test_01_01_hex_to_base64 GTest::gtest_main)
 target_link_libraries(test_01_02_fixed_xor GTest::gtest_main)
