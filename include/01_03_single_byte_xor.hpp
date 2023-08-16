@@ -3,6 +3,6 @@
 
 #include <string>
 
-char single_byte_xor(const std::string& hex_string);
+char single_byte_xor(const std::string& hex_string, std::string& decoded_output);
 
 #endif

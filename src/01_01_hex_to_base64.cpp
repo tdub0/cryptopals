@@ -1,5 +1,6 @@
 #include "01_01_hex_to_base64.hpp"
 
+#include <cstdint>
 #include <cstdlib>
 
 #include "string_interaction.hpp"
@@ -29,7 +30,7 @@ static const std::string base64_chars =
     "0123456789+/";
 
 void hex_to_base64(const std::string& hex_string, std::string& base64_string) {
-    std::vector<uint8_t> byte_array;
+    std::vector<char> byte_array;
     std::vector<uint8_t> b64_array;
 
     if (hex_from_string(hex_string, byte_array) == status::error) {
