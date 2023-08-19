@@ -39,6 +39,10 @@ add_executable(test_01_03_single_byte_xor
     src/string_interaction.cpp
     src/01_03_single_byte_xor.cpp
     test/test_01_03_single_byte_xor.cpp)
+add_executable(test_01_04_detect_single_byte_xor
+    src/string_interaction.cpp
+    src/01_04_detect_single_byte_xor.cpp
+    test/test_01_04_detect_single_byte_xor.cpp)
 
 target_include_directories(test_01_01_hex_to_base64
     PRIVATE ${PROJECT_SOURCE_DIR}/include)
@@ -46,13 +50,17 @@ target_include_directories(test_01_02_fixed_xor
     PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(test_01_03_single_byte_xor
     PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(test_01_04_detect_single_byte_xor
+    PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(test_01_01_hex_to_base64 GTest::gtest_main)
 target_link_libraries(test_01_02_fixed_xor GTest::gtest_main)
 target_link_libraries(test_01_03_single_byte_xor GTest::gtest_main)
+target_link_libraries(test_01_04_detect_single_byte_xor GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(test_01_01_hex_to_base64)
 gtest_discover_tests(test_01_02_fixed_xor)
 gtest_discover_tests(test_01_03_single_byte_xor)
+gtest_discover_tests(test_01_04_detect_single_byte_xor)
 
